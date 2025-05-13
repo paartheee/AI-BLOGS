@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Blog Aggregator</title>
+    <style>
+        body {
+            background: #f6f6ef;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            margin: 0;
+            padding: 0;
+        }
+        .topbar {
+            background: #ff6600;
+            padding: 5px;
+        }
+        .topbar a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .container {
+            padding: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .item {
+            margin-bottom: 8px;
+        }
+        .item a {
+            text-decoration: none;
+            color: #0000cc;
+        }
+        .source {
+            color: #828282;
+            font-size: 11px;
+        }
+        .timestamp {
+            color: #828282;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <a href="/">AI News</a>
+        <a href="#">new</a>
+        <a href="#">past</a>
+        <a href="#">comments</a>
+        <a href="#">submit</a>
+    </div>
+
+    <div class="container">
+        {% for post in posts %}
+            <div class="item">
+                {{ loop.index }}. 
+                <a href="{{ post.link }}" target="_blank">{{ post.title }}</a> 
+                <span class="source">({{ post.source }})</span><br>
+                <span class="timestamp">{{ post.published }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
